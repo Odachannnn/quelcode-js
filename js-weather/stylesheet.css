@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+html, body {
+    font-size: 32px;
+    font-family: "Kokoro", serif;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 860px;
+    margin: 0 auto;
+}
+
+header .container {
+    display: flex;
+    color: #ea526f;
+}
+
+header img {
+    margin: 0 24px;
+}
+
+footer img {
+    margin: 0 42px;
+}
+
+h1 {
+    font-size: 32px;
+    color: #25ced1;
+}
