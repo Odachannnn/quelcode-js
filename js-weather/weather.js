@@ -16,7 +16,7 @@ document.getElementById('cityId').addEventListener('change', () => {
     }
 
     //サービスへの問い合わせURLを生成
-    let url = 'https://api.openweathermap.org/data/2.5/weather?id=' + encodeURIComponent(document.getElementById('cityId').value) + "&callback=test&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224";
+    const url = 'https://api.openweathermap.org/data/2.5/weather?id=' + encodeURIComponent(document.getElementById('cityId').value) + "&callback=test&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224";
     // <script>タグを生成
     const scr = document.createElement('script');
     scr.src = url;
