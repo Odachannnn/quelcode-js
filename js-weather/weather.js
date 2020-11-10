@@ -6,14 +6,14 @@ const getWeather = (data) => {
         result.textContent = '天気を取得できませんでした';
     } else {
         // 天気と気温を取得し、配列にする
-        const weatherConditions = data.weather[0].description;
+        const weatherDescription = data.weather[0].description;
         const temp = data.main.temp;
         const maxTemp = data.main.temp_max;
         const minTemp = data.main.temp_min;
-        const array = [weatherConditions, temp, maxTemp, minTemp];
+        const weatherConditions = [weatherDescription, temp, maxTemp, minTemp];
         const weatherInfo = document.getElementsByClassName('weatherInfo');
         for (let i = 0, len = weatherInfo.length; i < len; i++) {
-            const value = document.createTextNode(array[i]);
+            const value = document.createTextNode(weatherConditions[i]);
             weatherInfo[i].appendChild(value);
         }
     }
