@@ -7,20 +7,16 @@ const getWeather = (data) => {
         result.textContent = '天気を取得できませんでした';
     } else {
         // 天気, icon, 気温を取得し、配列にする
-        const weatherConditions = '空の様子：' + data.weather[0].description;
-        const temp = '現在の気温：' + data.main.temp + '度';
-        const MaxTemp = '最高気温：' + data.main.temp_max + '度';
-        const MinTemp = '最低気温：' + data.main.temp_min + '度';
+        const weatherConditions = data.weather[0].description;
+        const temp =  data.main.temp;
+        const MaxTemp =  data.main.temp_max;
+        const MinTemp =  data.main.temp_min;
         const array = [weatherConditions, temp, MaxTemp, MinTemp];
-        const len = array.length;
-        //タグを生成
-        const fragment = document.createDocumentFragment();
-        for (let i = 0; i < len; i++) {
-            const p = document.createElement('p');
-            p.textContent = array[i];
-            fragment.appendChild(p);
+        const weatherInfo = document.getElementsByClassName('weatherInfo');
+        for (let i = 0, len = weatherInfo.length; i < len; i++) {
+            const value = document.createTextNode(array[i]);
+            weatherInfo[i].appendChild(value);
         }
-        result.appendChild(fragment);
     }
 }
 
