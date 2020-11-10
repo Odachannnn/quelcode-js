@@ -1,6 +1,7 @@
+//<div id = "result">HTMLElementオブジェクトを生成
+const result = document.getElementById('result');
+
 document.addEventListener('DOMContentLoaded', () => {
-    //<div id = "result">オブジェクト
-    const result = document.getElementById('result');
     // <script>タグを生成
     const scr = document.createElement('script');
     scr.src = 'https://api.openweathermap.org/data/2.5/weather?id=2643743&callback=getWeather&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224';
@@ -9,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('cityId').addEventListener('change', () => {
     //すでに表示されている、<div id="result">の子ノードの削除
-    const result = document.getElementById('result');
     const removeChilds = result.querySelectorAll('p');
     for (let i = 0, len = removeChilds.length; i < len; i++) {
         removeChilds[i].parentNode.removeChild(removeChilds[i])
