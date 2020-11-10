@@ -8,9 +8,9 @@ const getWeather = (data) => {
     } else {
         // 天気, icon, 気温を取得し、配列にする
         const weatherConditions = data.weather[0].description;
-        const temp =  data.main.temp;
-        const MaxTemp =  data.main.temp_max;
-        const MinTemp =  data.main.temp_min;
+        const temp = data.main.temp;
+        const MaxTemp = data.main.temp_max;
+        const MinTemp = data.main.temp_min;
         const array = [weatherConditions, temp, MaxTemp, MinTemp];
         const weatherInfo = document.getElementsByClassName('weatherInfo');
         for (let i = 0, len = weatherInfo.length; i < len; i++) {
@@ -45,4 +45,3 @@ document.getElementById('cityId').addEventListener('change', () => {
     const lastChild = document.body.lastChild;
     document.body.replaceChild(scr, lastChild);
 }, false);
-
