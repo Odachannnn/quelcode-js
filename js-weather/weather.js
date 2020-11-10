@@ -45,7 +45,3 @@ const test = (data) => {
         result.appendChild(fragment);
     }
 }
-
-
-
-
