@@ -8,9 +8,9 @@ const getWeather = (data) => {
         // 天気と気温を取得し、配列にする
         const weatherConditions = data.weather[0].description;
         const temp = data.main.temp;
-        const MaxTemp = data.main.temp_max;
-        const MinTemp = data.main.temp_min;
-        const array = [weatherConditions, temp, MaxTemp, MinTemp];
+        const maxTemp = data.main.temp_max;
+        const minTemp = data.main.temp_min;
+        const array = [weatherConditions, temp, maxTemp, minTemp];
         const weatherInfo = document.getElementsByClassName('weatherInfo');
         for (let i = 0, len = weatherInfo.length; i < len; i++) {
             const value = document.createTextNode(array[i]);
