@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 document.getElementById('cityId').addEventListener('change', () => {
-    //すでに表示されている、<div id="result">の子ノードの削除
-    const removeChilds = result.querySelectorAll('p');
-    for (let i = 0, len = removeChilds.length; i < len; i++) {
-        removeChilds[i].parentNode.removeChild(removeChilds[i])
+    //すでに表示されている、weatherInfoオブジェクトのテキストノードの削除
+    const text = document.getElementsByClassName('weatherInfo');
+    for (let i = 0, len = text.length; i < len; i++) {
+        text[i].removeChild(text[i].firstChild);
     }
 
     //サービスへの問い合わせURLを生成
