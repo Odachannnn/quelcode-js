@@ -1,6 +1,29 @@
 //<div id = "result">HTMLElementオブジェクトを生成
 const result = document.getElementById('result');
 
+//関数リテラルは呼び出し元のコードよりも先に記述する
+const getWeather = (data) => {
+    if (data === null) {
+        result.textContent = '天気を取得できませんでした';
+    } else {
+        // 天気, icon, 気温を取得し、配列にする
+        const weatherConditions = '空の様子：' + data.weather[0].description;
+        const temp = '現在の気温：' + data.main.temp + '度';
+        const MaxTemp = '最高気温：' + data.main.temp_max + '度';
+        const MinTemp = '最低気温：' + data.main.temp_min + '度';
+        const array = [weatherConditions, temp, MaxTemp, MinTemp];
+        const len = array.length;
+        //タグを生成
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < len; i++) {
+            const p = document.createElement('p');
+            p.textContent = array[i];
+            fragment.appendChild(p);
+        }
+        result.appendChild(fragment);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // <script>タグを生成
     const scr = document.createElement('script');
@@ -24,24 +47,3 @@ document.getElementById('cityId').addEventListener('change', () => {
     document.body.replaceChild(scr, lastChild);
 }, false);
 
-const getWeather = (data) => {
-    if (data === null) {
-        result.textContent = '天気を取得できませんでした';
-    } else {
-        // 天気, icon, 気温を取得し、配列にする
-        const weatherConditions = '空の様子：' + data.weather[0].description;
-        const temp = '現在の気温：' + data.main.temp + '度';
-        const MaxTemp = '最高気温：' + data.main.temp_max + '度';
-        const MinTemp = '最低気温：' + data.main.temp_min + '度';
-        const array = [weatherConditions, temp, MaxTemp, MinTemp];
-        const len = array.length;
-        //タグを生成
-        const fragment = document.createDocumentFragment();
-        for (let i = 0; i < len; i++) {
-            const p = document.createElement('p');
-            p.textContent = array[i];
-            fragment.appendChild(p);
-        }
-        result.appendChild(fragment);
-    }
-}
