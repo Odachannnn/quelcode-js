@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () => {
     //<div id = "result">オブジェクト
     const result = document.getElementById('result');
     // <script>タグを生成
     const scr = document.createElement('script');
-    scr.src = 'https://api.openweathermap.org/data/2.5/weather?id=2643743&callback=test&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224';
+    scr.src = 'https://api.openweathermap.org/data/2.5/weather?id=2643743&callback=getWeather&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224';
     document.body.appendChild(scr);
 }, false);
 
@@ -16,7 +16,7 @@ document.getElementById('cityId').addEventListener('change', () => {
     }
 
     //サービスへの問い合わせURLを生成
-    const url = 'https://api.openweathermap.org/data/2.5/weather?id=' + encodeURIComponent(document.getElementById('cityId').value) + "&callback=test&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224";
+    const url = 'https://api.openweathermap.org/data/2.5/weather?id=' + encodeURIComponent(document.getElementById('cityId').value) + "&callback=getWeather&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224";
     // <script>タグを生成
     const scr = document.createElement('script');
     scr.src = url;
@@ -24,7 +24,7 @@ document.getElementById('cityId').addEventListener('change', () => {
     document.body.replaceChild(scr, lastChild);
 }, false);
 
-const test = (data) => {
+const getWeather = (data) => {
     if (data === null) {
         result.textContent = '天気を取得できませんでした';
     } else {
