@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 html, body {
-    font-size: 32px;
+    font-size: 18px;
     font-family: "Kokoro", serif;
     background-color: #ffffff;
 }
@@ -24,7 +24,18 @@ footer img {
     margin: 0 42px;
 }
 
-h1 {
+.container h1 {
     font-size: 32px;
     color: #25ced1;
+}
+
+.result h2 {
+    margin: 9px 0;
+    font-size: 32px;
+    font-weight: normal;
+    color: #ff9f1c;
+}
+
+.weatherInfo {
+    margin: 9px 0;
 }
