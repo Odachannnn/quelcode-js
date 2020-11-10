@@ -5,7 +5,7 @@ const getWeather = (data) => {
         const result = document.getElementById('result');
         result.textContent = '天気を取得できませんでした';
     } else {
-        // 天気, icon, 気温を取得し、配列にする
+        // 天気と気温を取得し、配列にする
         const weatherConditions = data.weather[0].description;
         const temp = data.main.temp;
         const MaxTemp = data.main.temp_max;
@@ -19,6 +19,7 @@ const getWeather = (data) => {
     }
 }
 
+// htmlファイルロードとき
 document.addEventListener('DOMContentLoaded', () => {
     // <script>タグを生成
     const scr = document.createElement('script');
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(scr);
 }, false);
 
+// セレクトボックスに変化があったとき
 document.getElementById('cityId').addEventListener('change', () => {
     //すでに表示されている、weatherInfoオブジェクトのテキストノードの削除
     const text = document.getElementsByClassName('weatherInfo');
