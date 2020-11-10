@@ -1,9 +1,8 @@
-//<div id = "result">HTMLElementオブジェクトを生成
-const result = document.getElementById('result');
-
 //関数リテラルは呼び出し元のコードよりも先に記述する
 const getWeather = (data) => {
     if (data === null) {
+        //<div id = "result">HTMLElementオブジェクトを生成
+        const result = document.getElementById('result');
         result.textContent = '天気を取得できませんでした';
     } else {
         // 天気, icon, 気温を取得し、配列にする
