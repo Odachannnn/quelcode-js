@@ -22,10 +22,10 @@ const getWeather = (data) => {
 // htmlファイルロードとき
 document.addEventListener('DOMContentLoaded', () => {
     // <script>タグを生成
-    const scr = document.createElement('script');
+    const scriptElement = document.createElement('script');
     const london = 'https://api.openweathermap.org/data/2.5/weather?id=2643743&callback=getWeather&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224';
-    scr.src = london;
-    document.body.appendChild(scr);
+    scriptElement.src = london;
+    document.body.appendChild(scriptElement);
 }, false);
 
 // セレクトボックスに変化があったとき
