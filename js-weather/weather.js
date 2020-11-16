@@ -19,18 +19,26 @@ const getWeather = (data) => {
     }
 }
 
+/**
+ * cityIdによりURLを変更する関数を作成
+ * @param {integer} cityId 
+ */
+const createApiUrl = (cityId) => {
+    return `
+      https://api.openweathermap.org/data/2.5/weather?id=${encodeURIComponent(cityId)}&callback=getWeather&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224
+    `
+  }
 // htmlファイルロードとき
 document.addEventListener('DOMContentLoaded', () => {
     // <script>タグを生成
     const scriptElement = document.createElement('script');
-    const london = 'https://api.openweathermap.org/data/2.5/weather?id=2643743&callback=getWeather&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224';
-    scriptElement.src = london;
+    scriptElement.src = createApiUrl(2643743);
     document.body.appendChild(scriptElement);
 }, false);
 
 // セレクトボックスに変化があったとき
 document.getElementById('cityId').addEventListener('change', () => {
-    //すでに表示されている、weatherInfoオブジェクトのテキストノードの削除
+    //すでに表示されている、weatherInfoオブジェクトのテキストノードを変更
     const text = document.getElementsByClassName('weatherInfo');
     for (let i = 0, len = text.length; i < len; i++) {
         text[i].textContent = '';
@@ -39,7 +47,7 @@ document.getElementById('cityId').addEventListener('change', () => {
     //サービスへの問い合わせURLを生成
     // <script>タグを生成
     const scriptElement = document.createElement('script');
-    scriptElement.src = `https://api.openweathermap.org/data/2.5/weather?id=${encodeURIComponent(document.getElementById('cityId').value)}&callback=getWeather&lang=ja&units=metric&appid=4b5774e9f3d2a07b84f0f2f88e486224`;
+    scriptElement.src = createApiUrl(document.getElementById('cityId').value);
     const lastChild = document.body.lastChild;
     document.body.replaceChild(scriptElement, lastChild);
 }, false);
