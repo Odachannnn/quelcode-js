@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+html, body {
+    font-size: 18px;
+    font-family: "Kokoro", serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.container {
+    width: 860px;
+    margin: 0 auto;
+}
+
+header .container {
+    display: flex;
+    color: #ea526f;
+}
+
+header img {
+    margin: 0 24px;
+}
+
+footer img {
+    margin: 0 42px;
+}
+
+.container h1 {
+    font-size: 32px;
+    color: #25ced1;
+}
+
+.result h2 {
+    margin: 9px 0;
+    font-size: 32px;
+    font-weight: normal;
+    color: #ff9f1c;
+}
+
+.weatherInfo {
+    margin: 9px 0;
+    height: 20px;
+}
